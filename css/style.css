@@ -1,0 +1,91 @@
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+:root {
+  --default-font: "Roboto", system-ui, ...;
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Montserrat", sans-serif;
+
+  --background-color: #ffffff;
+  --default-color: #263a31;
+  --heading-color: #103524;
+  --accent-color: #077f46;
+
+}
+
+
+
+.accent-background {
+  --background-color: #077f46;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --accent-color: #1a1717;
+  --surface-color: #2a8f5f;
+  --contrast-color: #ffffff;
+}
+
+.navbar {
+  background-color: #32632a !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: black !important;
+}
+
+.navbar .nav-link:hover {
+  color: #344732 !important;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.hero-section {
+  background: url('../images/hero-bg.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-section .container {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+h2 {
+  color: #2f6627;
+}
+
+.btn-success {
+  background-color: #2f6627;
+  border: none;
+}
+
+footer {
+  background: #f8f9fa;
+}
+.info-box {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.info-box i {
+  font-size: 32px;
+  color: #2f6627;
+  margin-bottom: 15px;
+}
+form button {
+  background-color: #2f6627;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+}
+
