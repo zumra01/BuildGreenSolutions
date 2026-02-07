@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,76 +10,377 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- AOS CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css" />
   <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * { font-family: 'Poppins', sans-serif; }
-
+    /* Smooth scroll */
     :root {
+      scroll-behavior: auto;
       --primary: #22c55e;
+      --primary-dark: #16a34a;
       --secondary: #4ade80;
+      --light-bg: #f0fdf4;
       --dark-text: #1f2937;
     }
 
-    body { color: var(--dark-text); }
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
 
-    /* SERVICES */
-    .services-section {
+    body {
+      color: var(--dark-text);
+      overflow-x: hidden;
+    }
+
+    /* ============ NAVBAR ============ */
+    .navbar {
+      background: linear-gradient(135deg, #7ded81 0%, #075f21 100%) !important;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 0.8rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .navbar-brand img {
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: white !important;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover:after {
+      width: 100%;
+    }
+
+    /* ============ HERO SECTION ============ */
+    .hero-section {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img {
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 2;
+    }
+
+    .hero-section .container {
+      z-index: 3;
+      position: relative;
+    }
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: slideDown 0.8s ease-out;
+      line-height: 1.2;
+    }
+
+    .hero-section .lead {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      animation: slideUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero-section .btn {
+      animation: slideUp 0.8s ease-out 0.4s both;
+      padding: 0.8rem 2.5rem;
+      font-weight: 600;
+      border-radius: 50px;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============ ABOUT SECTION ============ */
+    .about-section {
       padding: 80px 0;
-      background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+      background: #ffffff;
+    }
+
+    .about-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--dark-text);
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #6b7280;
+    }
+
+    .about-section img {
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .about-section img:hover {
+      transform: translateY(-10px);
+    }
+
+    .about-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .about-section li {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ============ WHY CHOOSE US SECTION ============ */
+   #why-choose-us {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+
+    #why-choose-us h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--dark-text);
+    }
+
+    .why-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border-left: 5px solid var(--primary);
+      height: 100%;
+    }
+
+    .why-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(34, 197, 94, 0.2);
+    }
+
+    .why-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      margin: 0 auto 1.5rem;
+    }
+
+    .why-card h5 {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .why-card p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* ============ PRODUCTS SECTION ============ */
+    .products-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    }
+
+    .products-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--dark-text);
     }
 
     .service-card {
       background: white;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       transition: transform 0.4s ease;
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .service-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-12px);
+      box-shadow: 0 15px 35px rgba(34, 197, 94, 0.2);
     }
 
     .service-card-img {
       height: 230px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 4rem;
-      color: white;
+      overflow: hidden;
     }
 
-    .service-card-body h5 {
-  font-size: 1.05rem;
-  font-weight: 600;
-}
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-card-img img {
+      transform: scale(1.1);
+    }
+
+    .service-card-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .service-card h5 {
       font-weight: 700;
       color: var(--primary);
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.4;
+      margin: 0;
     }
 
-    /* Carousel Enhancements */
-    #servicesCarousel .carousel-item {
-      transition: transform 0.8s ease-in-out, opacity 0.6s ease-in-out;
+    .carousel-indicators {
+      bottom: -3rem;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      background-color: var(--primary);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-indicators .active {
+      background-color: var(--primary-dark);
+      transform: scale(1.3);
+    }
+
+    #productsCarousel .carousel-control-prev,
+    #productsCarousel .carousel-control-next {
+      width: 45px;
+      height: 45px;
+      background: rgba(34, 197, 94, 0.2);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+    }
+
+    #productsCarousel .carousel-control-prev:hover,
+    #productsCarousel .carousel-control-next:hover {
+      background: var(--primary);
+    }
+
+    /* ============ SERVICES SECTION ============ */
+    .services-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    }
+
+    .services-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--dark-text);
+    }
+
+    .services-section .service-card {
+      background: white;
+    }
+
+    .services-section .service-card-img {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      height: 150px;
+    }
+
+    .services-section .service-card-body {
+      min-height: 100px;
     }
 
     #servicesCarousel .carousel-control-prev,
     #servicesCarousel .carousel-control-next {
       width: 45px;
       height: 45px;
-      background: rgba(34, 197, 94, 0.15);
+      background: rgba(34, 197, 94, 0.2);
       border-radius: 50%;
       top: 50%;
       transform: translateY(-50%);
+      transition: all 0.3s ease;
     }
 
     #servicesCarousel .carousel-control-prev:hover,
@@ -86,19 +388,82 @@
       background: var(--primary);
     }
 
-    #servicesCarousel .carousel-control-prev-icon,
-    #servicesCarousel .carousel-control-next-icon {
-      filter: invert(1);
+    /* ============ PROJECTS SECTION ============ */
+    .projects-section {
+      padding: 80px 0;
+      background: white;
     }
 
-    #servicesCarousel .carousel-indicators [data-bs-target] {
-      background-color: var(--primary);
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+    .projects-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--dark-text);
     }
 
-     /* Testimonials */
+    .project-card {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      height: 350px;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(34, 197, 94, 0.2);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-text {
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* ============ TESTIMONIALS SECTION ============ */
+    .profile-icon {
+      font-size: 80px;
+      color: #2e7d32;
+      /* green theme */
+      margin-bottom: 15px;
+    }
+
     .testimonials-section {
       padding: 80px 0;
       background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
@@ -109,6 +474,7 @@
       font-weight: 700;
       margin-bottom: 3rem;
       text-align: center;
+      color: var(--dark-text);
     }
 
     .testimonial-card {
@@ -123,36 +489,33 @@
 
     .testimonial-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15);
+      box-shadow: 0 15px 40px rgba(34, 197, 94, 0.15);
     }
 
-    .testimonial-avatar {
+    .testimonial-card img {
       width: 80px;
       height: 80px;
-      margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      border: 3px solid var(--primary);
     }
 
     .testimonial-text {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #6b7280;
       margin-bottom: 1rem;
       font-style: italic;
+      line-height: 1.6;
     }
 
     .testimonial-author {
       font-weight: 700;
       color: var(--primary);
+      font-size: 1rem;
     }
 
-
-     /* Contact Section */
+    /* ============ CONTACT SECTION ============ */
     .contact-section {
       padding: 80px 0;
       background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
@@ -163,6 +526,7 @@
       font-weight: 700;
       margin-bottom: 3rem;
       text-align: center;
+      color: var(--dark-text);
     }
 
     .contact-info-box {
@@ -176,13 +540,13 @@
 
     .contact-info-box:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(16, 185, 129, 0.15);
+      box-shadow: 0 15px 30px rgba(34, 197, 94, 0.15);
     }
 
     .contact-icon {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -190,6 +554,17 @@
       color: white;
       font-size: 1.5rem;
       margin-bottom: 1rem;
+    }
+
+    .contact-info-box h5 {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info-box p {
+      color: #6b7280;
+      margin: 0;
     }
 
     .contact-form {
@@ -209,7 +584,7 @@
 
     .form-control:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
     }
 
     .form-control::placeholder {
@@ -218,20 +593,23 @@
 
     .btn-submit {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
       border: none;
       padding: 0.75rem 2rem;
       font-weight: 600;
       border-radius: 10px;
       width: 100%;
       transition: all 0.3s ease;
+      cursor: pointer;
     }
 
     .btn-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(41, 185, 16, 0.3);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+      color: white;
     }
 
-    /* Footer */
+    /* ============ FOOTER ============ */
     footer {
       background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
       color: white;
@@ -247,6 +625,7 @@
     footer p {
       color: #d1d5db;
       line-height: 1.8;
+      margin: 0.5rem 0;
     }
 
     footer a {
@@ -275,10 +654,12 @@
       justify-content: center;
       width: 45px;
       height: 45px;
-      background: rgba(41, 185, 16, 0.2);
+      background: rgba(34, 197, 94, 0.2);
       border-radius: 50%;
       margin-right: 0.5rem;
       transition: all 0.3s ease;
+      color: white;
+      font-size: 1.2rem;
     }
 
     .social-links a:hover {
@@ -294,15 +675,21 @@
       color: #9ca3af;
     }
 
-    /* Scroll to top */
+    footer img {
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ============ SCROLL TO TOP ============ */
     #scroll-top {
       position: fixed;
       right: 20px;
       bottom: 20px;
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       border-radius: 50%;
+      border: none;
       display: none;
       align-items: center;
       justify-content: center;
@@ -310,71 +697,123 @@
       cursor: pointer;
       transition: all 0.3s ease;
       z-index: 99;
+      font-size: 1.5rem;
     }
 
     #scroll-top:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
     }
 
     #scroll-top.active {
       display: flex;
     }
 
-    /* Responsive */
+    /* ============ RESPONSIVE ============ */
     @media (max-width: 768px) {
       .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
 
       .hero-section .lead {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
-      .services-section h2,
-      .projects-section h2,
-      .testimonials-section h2,
-      .contact-section h2,
-      .about-section h2 {
-        font-size: 2rem;
+      .hero-section .btn {
+        padding: 0.6rem 1.8rem;
+        font-size: 0.95rem;
+      }
+
+      h2 {
+        font-size: 1.8rem !important;
+      }
+
+      .about-section {
+        padding: 50px 0;
+      }
+
+      .service-card-img {
+        height: 180px;
+      }
+
+      .service-card-body {
+        padding: 1rem;
+      }
+
+      .project-card {
+        height: 280px;
+      }
+
+      .contact-section,
+      .testimonials-section,
+      .services-section,
+      .products-section,
+      #why-choose-us {
+        padding: 50px 0;
+      }
+
+      .navbar {
+        padding: 0.5rem 0;
       }
 
       .navbar-brand {
-        font-size: 1.2rem;
+        font-size: 1rem;
+      }
+
+      .navbar-brand img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .nav-link {
+        margin: 0.3rem 0;
+      }
+
+      #productsCarousel .carousel-control-prev,
+      #productsCarousel .carousel-control-next,
+      #servicesCarousel .carousel-control-prev,
+      #servicesCarousel .carousel-control-next {
+        width: 35px;
+        height: 35px;
       }
     }
 
-    .hero-section {
-  height: 100vh;
-  overflow: hidden;
-}
+    @media (max-width: 576px) {
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
 
-/* Background images */
-.hero-img {
-  object-fit: cover;
-  filter: brightness(0.65);
-}
+      .hero-section .lead {
+        font-size: 0.95rem;
+      }
 
-/* Dark overlay for readability */
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 2;
-}
+      .why-card,
+      .contact-info-box {
+        padding: 1.5rem;
+      }
 
-/* Ensure content stays above */
-.hero-section .container {
-  z-index: 3;
-}
+      .contact-form {
+        padding: 1.5rem;
+      }
 
+      .service-card-img {
+        height: 150px;
+      }
+
+      .carousel-indicators {
+        bottom: -2.5rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="images/logos.png" alt="Logo" width="100" height="100">
+      <a class="navbar-brand" href="#hero">
+        <img src="images/logos.png" alt="Logo" width="60" height="60">
         BGS
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -384,264 +823,452 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
- <!-- Hero Section with Background Carousel -->
-<section id="hero" class="hero-section position-relative text-white d-flex align-items-center">
-
-  <!-- Background Carousel -->
-  <div id="heroCarousel" class="carousel slide carousel-fade position-absolute w-100 h-100" data-bs-ride="carousel">
-    <div class="carousel-inner h-100">
-
-      <div class="carousel-item active h-100">
-        <img src="images/backgoundimage.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 1">
+  <!-- Hero Section with Background Carousel -->
+  <section id="hero" class="hero-section position-relative text-white">
+    <div id="heroCarousel" class="carousel slide carousel-fade position-absolute w-100 h-100" data-bs-ride="carousel">
+      <div class="carousel-inner h-100">
+        <div class="carousel-item active h-100">
+          <img src="images/backgoundimage.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 1">
+        </div>
+        <div class="carousel-item h-100">
+          <img src="images/homepage.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 2">
+        </div>
+        <div class="carousel-item h-100">
+          <img src="images/intro.jpeg" class="d-block w-100 h-100 hero-img" alt="Slide 3">
+        </div>
+        <div class="carousel-item h-100">
+          <img src="images/labss.jpeg" class="d-block w-100 h-100 hero-img" alt="Slide 4">
+        </div>
       </div>
-
-      <div class="carousel-item h-100">
-        <img src="images/homepage.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 2">
-      </div>
-
-      <div class="carousel-item h-100">
-        <img src="images/intro.jpeg" class="d-block w-100 h-100 hero-img" alt="Slide 3">
-      </div>
-
-      <!-- Optional 4th image -->
-      <!--
-      <div class="carousel-item h-100">
-        <img src="images/hero4.jpg" class="d-block w-100 h-100 hero-img" alt="Slide 4">
-      </div>
-      -->
-
     </div>
-  </div>
 
-  <!-- Overlay -->
-  <div class="hero-overlay position-absolute w-100 h-100"></div>
+    <div class="hero-overlay position-absolute w-100 h-100"></div>
 
-  <!-- Content -->
-  <div class="container text-center position-relative z-3" data-aos="fade-up">
-    <h1 class="display-4 fw-bold">Empowering Sustainable Monitoring</h1>
-    <p class="lead">Innovative environmental solutions for a greener future.</p>
-    <a href="#contact" class="btn btn-success btn-lg mt-3">Get In Touch</a>
-  </div>
-
-</section>
-
+    <div class="container text-center" data-aos="fade-up">
+      <h1>Building a Sustainable Tomorrow</h1>
+      <p class="lead">Comprehensive Environmental Monitoring, Assessment & Compliance Solutions for a Greener Future</p>
+      <a href="#contact" class="btn btn-success">Get In Touch</a>
+    </div>
+  </section>
 
   <!-- About Us -->
-  <section id="about" class="py-5">
-    <div class="container" data-aos="fade-right">
-      <div class="row align-items-center">
+  <section id="about" class="about-section">
+    <div class="container" data-aos="fade-up">
+      <div class="row align-items-center g-5">
         <div class="col-md-6">
-          <img src="images/about.jpg" alt="About Us" class="img-fluid rounded">
+          <img src="images/about.jpg" alt="About Us" class="img-fluid">
         </div>
         <div class="col-md-6">
           <h2>About Us</h2>
-          <p>Build Green Solutions is a leader in high-performance environmental monitoring systems. We provide OCEMS, water analyzers, groundwater recorders, and weather stations for various industries. Our customized solutions ensure compliance, reliability, and sustainability, empowering clients to meet environmental standards and achieve their sustainability goals.</p>
+          <p>Build Green Solutions is a leader in high-performance environmental monitoring systems. We provide OCEMS,
+            water analyzers, groundwater recorders, and weather stations for various industries.</p>
+          <p>Our customized solutions ensure compliance, reliability, and sustainability, empowering clients to meet
+            environmental standards and achieve their sustainability goals.</p>
+          <p style="margin-top: 1.5rem;"><strong>Our Expertise:</strong></p>
+          <ul>
+            <li>✓ Environmental Impact Assessment (EIA) & Monitoring</li>
+            <li>✓ Air, Water & Weather Monitoring Systems</li>
+            <li>✓ Comprehensive Environmental Management Planning</li>
+            <li>✓ ESG Data Collection & Sustainability Reporting</li>
+            <li>✓ ISO 14001 & Legal Compliance Audits</li>
+            <li>✓ Safety & Risk Management Planning</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
- <!-- PRODUCTS -->
-<section id="products" class="services-section bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5">Our Products</h2>
+  <!-- Why Choose Us Section -->
+  <section id="why-choose-us" class="py-5">
+    <div class="container">
+      <div class="section-title text-center mb-5" data-aos="fade-up">
+  <h2>Why Choose Build Green Solutions?</h2>
+</div>
 
-    <div id="productsCarousel" class="carousel slide" data-bs-ride="carousel">
-
-      <!-- Indicators -->
-      <div class="carousel-indicators">
-        <button data-bs-target="#productsCarousel" data-bs-slide-to="0" class="active"></button>
-        <button data-bs-target="#productsCarousel" data-bs-slide-to="1"></button>
-      </div>
-
-      <div class="carousel-inner">
-
-        <!-- SLIDE 1 -->
-        <div class="carousel-item active">
-          <div class="row g-4">
-            <div class="col-md-4">
-              <div class="service-card">
-                <div class="service-card-img">Image</div>
-                <div class="service-card-body">
-                  <h5>Ambient Air Quality Monitoring System (AQMS)</h5>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="service-card">
-                <div class="service-card-img">Image</div>
-                <div class="service-card-body">
-                  <h5>Continuous Ambient Air Monitoring (CAM) Stations</h5>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="service-card">
-                <div class="service-card-img">Image</div>
-                <div class="service-card-body">
-                  <h5>Flow Meters</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SLIDE 2 -->
-        <div class="carousel-item">
-          <div class="row g-4">
-            <div class="col-md-4">
-              <div class="service-card">
-                <div class="service-card-img">Image</div>
-                <div class="service-card-body">
-                  <h5>Digital Water Flow Meters</h5>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="service-card">
-                <div class="service-card-img">Image</div>
-                <div class="service-card-body">
-                  <h5>Weather Monitoring Stations</h5>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="service-card">
-                <div class="service-card-img">Image</div>
-                <div class="service-card-body">
-                  <h5>Ambient Air Monitoring Equipment</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#productsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#productsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="services-section">
-  <div class="container">
-    <h2 class="text-center mb-5">Our Services</h2>
-
-    <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
-
-      <div class="carousel-indicators">
-        <button data-bs-target="#servicesCarousel" data-bs-slide-to="0" class="active"></button>
-        <button data-bs-target="#servicesCarousel" data-bs-slide-to="1"></button>
-        <button data-bs-target="#servicesCarousel" data-bs-slide-to="2"></button>
-      </div>
-
-      <div class="carousel-inner">
-
-        <!-- SLIDE 1 -->
-        <div class="carousel-item active">
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6 col-sm-12"><div class="service-card"><div class="service-card-body"><h5>Muck Disposal Plan (MDP)</h5></div></div></div>
-            <div class="col-lg-4 col-md-6 col-sm-12"><div class="service-card"><div class="service-card-body"><h5>Environmental Management Plan (EMP)</h5></div></div></div>
-            <div class="col-lg-4 col-md-6 col-sm-12"><div class="service-card"><div class="service-card-body"><h5>Traffic Management Plan (TMP)</h5></div></div></div>
-          </div>
-        </div>
-
-        <!-- SLIDE 2 -->
-        <div class="carousel-item">
-          <div class="row g-4">
-            <div class="col-md-4"><div class="service-card"><div class="service-card-body"><h5>Safety Management Plan (SMP)</h5></div></div></div>
-            <div class="col-md-4"><div class="service-card"><div class="service-card-body"><h5>Pre-Feasibility Report (PFR)</h5></div></div></div>
-            <div class="col-md-4"><div class="service-card"><div class="service-card-body"><h5>Damage Cost Assessment Report (DCAR)</h5></div></div></div>
-          </div>
-        </div>
-
-        <!-- SLIDE 3 -->
-        <div class="carousel-item">
-          <div class="row g-4">
-            <div class="col-md-4"><div class="service-card"><div class="service-card-body"><h5>Environmental Impact Assessment (EIA)</h5></div></div></div>
-            <div class="col-md-4"><div class="service-card"><div class="service-card-body"><h5>ESG Data Collection & Analysis</h5></div></div></div>
-            <div class="col-md-4"><div class="service-card"><div class="service-card-body"><h5>ISO 14001 Audit & EHS Dashboards</h5></div></div></div>
-          </div>
-        </div>
-
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-
-    </div>
-  </div>
-</section>
-
-  <!-- Projects -->
-  <section id="projects" class="py-5">
-    <div class="container" data-aos="fade-up">
-      <h2 class="text-center mb-4">Our Projects</h2>
       <div class="row g-4">
-        <div class="col-md-6">
-          <img src="images/air.jpg" class="img-fluid rounded" alt="Project 1">
-          <p class="mt-2">Emission monitoring installed at major automotive sites.</p>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-gear-fill"></i>
+            </div>
+            <h5>Advanced Technology</h5>
+            <p>State-of-the-art monitoring equipment and digital solutions for real-time environmental data collection
+              and analysis.</p>
+          </div>
         </div>
-        <div class="col-md-6">
-          <img src="images/sensors.jpg" class="img-fluid rounded" alt="Project 2">
-          <p class="mt-2">Custom weather stations for telecom infrastructure.</p>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-award-fill"></i>
+            </div>
+            <h5>Expert Compliance</h5>
+            <p>Deep expertise in environmental regulations, ISO standards, and legal requirements ensuring your
+              organization stays compliant.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5>Dedicated Support</h5>
+            <p>Committed team of environmental consultants providing customized solutions tailored to your industry
+              needs.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h5>Data-Driven Insights</h5>
+            <p>Comprehensive data analysis, ESG reporting, and actionable insights to drive sustainability initiatives
+              forward.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h5>Risk Mitigation</h5>
+            <p>Proactive assessment and management planning to minimize environmental and operational risks.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="bi bi-recycle"></i>
+
+            </div>
+            <h5>Sustainability Focus</h5>
+            <p>Committed to helping organizations achieve genuine environmental sustainability and ESG excellence.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
- 
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Our Products</h2>
+
+      <div id="productsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button data-bs-target="#productsCarousel" data-bs-slide-to="0" class="active"></button>
+          <button data-bs-target="#productsCarousel" data-bs-slide-to="1"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <!-- SLIDE 1 -->
+          <div class="carousel-item active">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/aaqms.png" alt="AQMS">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Ambient Air Quality Monitoring System (AQMS)</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/caams.png" alt="CAM Stations">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Continuous Ambient Air Monitoring (CAM) Stations</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/flowmeters.png" alt="Flow Meters">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Flow Meters</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/dwfm.png" alt="Digital Water Flow Meters">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Digital Water Flow Meters</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/weather monitor.png" alt="Weather Monitoring Stations">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Weather Monitoring Stations</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/aaqms.png" alt="Ambient Air Monitoring">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Ambient Air Monitoring Equipment</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/filterpapers.png" alt="Filter Papers">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Filter Papers</h5>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#productsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Our Services</h2>
+
+      <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button data-bs-target="#servicesCarousel" data-bs-slide-to="0" class="active"></button>
+          <button data-bs-target="#servicesCarousel" data-bs-slide-to="1"></button>
+          <button data-bs-target="#servicesCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <!-- SLIDE 1 -->
+          <div class="carousel-item active">
+            <div class="row g-4">
+              <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/muskdp.png">
+
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Muck Disposal Plan (MDP)</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/envmanagement.png">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Environmental Management Plan (EMP)</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/traffic.png">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Traffic Management Plan (TMP)</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/safety.png">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Safety Management Plan (SMP)</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/prefeasibility.png">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Pre-Feasibility Report (PFR)</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/damage.png">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Damage Cost Assessment Report (DCAR)</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="carousel-item">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                    <img src="images/envplan.jpeg">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>Environmental Impact Assessment (EIA)</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                   <img src="images/esgdata.jpeg">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>ESG Data Collection & Analysis</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="service-card">
+                  <div class="service-card-img">
+                     <img src="images/dashboard.jpeg">
+                  </div>
+                  <div class="service-card-body">
+                    <h5>ISO 14001 Audit & EHS Dashboards</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Our Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-up">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/air.jpg" alt="Emission Monitoring">
+            </div>
+            <div class="project-overlay">
+              <p class="project-text">Emission monitoring installed at major automotive sites.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/sensors.jpg" alt="Weather Stations">
+            </div>
+            <div class="project-overlay">
+              <p class="project-text">Custom weather stations for telecom infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonials Section -->
   <section id="testimonials" class="testimonials-section">
     <div class="container">
-      <h2 data-aos="fade-up">What People Say</h2>
+      <h2 data-aos="fade-up">Our Team Include</h2>
       <div class="row g-4">
         <div class="col-md-6" data-aos="fade-up">
           <div class="testimonial-card">
-                      <img src="images/backgoundimage.jpg" class="rounded-circle mb-3" alt="Client 2" width="80">
-
-            <p class="testimonial-text">"Reliable, professional, and committed to sustainability."</p>
-            <p class="testimonial-author">Rajesh Kumar, AutoTech Ltd.</p>
+            <div class="profile-icon">
+              <i class="bi bi-person-circle"></i>
+            </div>
+            <!-- <img src="images/backgoundimage.jpg" alt="Client 1"> -->
+            <p class="testimonial-text">"Environment Expert with 10 years of experience in environmental planning,
+              sustainability,
+              and regulatory compliance across metro, Bridge and water infrastructure projects."</p>
+            <p class="testimonial-author">Zohaib Uddin, Environmentalist</p>
           </div>
         </div>
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="testimonial-card">
-                      <img src="images/backgoundimage.jpg" class="rounded-circle mb-3" alt="Client 2" width="80">
-
-            <p class="testimonial-text">"They helped us achieve compliance with ease."</p>
-            <p class="testimonial-author">Neha Singh, EnviroLab</p>
+            <div class="profile-icon">
+              <i class="bi bi-person-circle"></i>
+            </div>
+            <!-- <img src="images/home.jpg" alt="Client 2"> -->
+            <p class="testimonial-text">"Civil Engineer Expert with 10 years of experience in planning,
+              engineering, and regulatory compliance across metro, Bridge and  infrastructure projects."</p>
+            <p class="testimonial-author">Imran Rais, Civil Engineer</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-   <!-- Contact Section -->
+  <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="container">
       <h2 data-aos="fade-up">Contact Us</h2>
@@ -689,7 +1316,7 @@
               <div class="mb-3">
                 <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
               </div>
-              <button type="submit" class="btn btn-submit">Send Message</button>
+              <button type="submit" class="btn-submit">Send Message</button>
             </form>
           </div>
         </div>
@@ -697,17 +1324,23 @@
     </div>
   </section>
 
-<!-- Footer -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-4 col-md-6 mb-4">
-          <h4> Build Green Solutions</h4>
-          <p>We are committed to empowering sustainability and guiding a greener tomorrow through innovative solutions and dedicated laboratory services.</p>
+          <a href="#" style="text-decoration: none;">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img src="images/logos.png" alt="Logo" width="60" height="60">
+              <h4 class="mb-0" style="color: var(--primary);">Build Green Solutions</h4>
+            </div>
+          </a>
+          <p>We are committed to empowering sustainability and guiding a greener tomorrow through innovative solutions
+            and dedicated laboratory services.</p>
           <div class="social-links mt-3">
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/onepath1god"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/eco_muslim_life?igsh=MXNwOGgyZ2d4cHlocw%3D%3D"><i
+                class="bi bi-instagram"></i></a>
             <a href="#"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
@@ -717,19 +1350,19 @@
           <ul>
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
-          <h4>Services</h4>
+          <h4>Our Services</h4>
           <ul>
-            <li><a href="#">OCEMS</a></li>
-            <li><a href="#">Water Analyzers</a></li>
-            <li><a href="#">Groundwater Recorders</a></li>
-            <li><a href="#">Weather Stations</a></li>
+            <li><a href="#services">Environmental Management</a></li>
+            <li><a href="#services">Air Quality Monitoring</a></li>
+            <li><a href="#services">Water Monitoring</a></li>
+            <li><a href="#services">ESG Reporting</a></li>
           </ul>
         </div>
 
@@ -752,20 +1385,12 @@
     <i class="bi bi-arrow-up-short"></i>
   </button>
 
-<!-- Scroll Top -->
-<!-- <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-<!-- Preloader -->
-<!-- <div id="preloader"></div> -->
-
-  
-
- <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-<script>
-  // Initialize AOS
+  <script>
+    // Initialize AOS
     AOS.init({
       duration: 800,
       offset: 100,
@@ -786,34 +1411,40 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+   document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+
+
+    // Auto-rotate carousels
+    const productsCarousel = new bootstrap.Carousel('#productsCarousel', {
+      interval: 4000,
+      pause: false
     });
 
-  const servicesCarousel = document.querySelector('#servicesCarousel');
-  const carousel = new bootstrap.Carousel(servicesCarousel, {
-    interval: 3500,
-    pause: false
-  });
+    const servicesCarousel = new bootstrap.Carousel('#servicesCarousel', {
+      interval: 4000,
+      pause: false
+    });
 
-  servicesCarousel.addEventListener('mouseenter', () => carousel.pause());
-  servicesCarousel.addEventListener('mouseleave', () => carousel.cycle());
+    const heroCarousel = new bootstrap.Carousel('#heroCarousel', {
+      interval: 4000,
+      pause: false,
+      ride: 'carousel'
+    });
 
-  
-  const heroCarousel = new bootstrap.Carousel('#heroCarousel', {
-    interval: 4000,   // 4 seconds
-    pause: false,
-    ride: 'carousel'
-  });
-
-
-</script>
+    // Pause on hover
+   
+    document.getElementById('servicesCarousel').addEventListener('mouseenter', () => servicesCarousel.pause());
+    document.getElementById('servicesCarousel').addEventListener('mouseleave', () => servicesCarousel.cycle());
+  </script>
 </body>
+
 </html>
